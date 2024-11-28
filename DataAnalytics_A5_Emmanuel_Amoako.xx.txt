@@ -1,0 +1,33 @@
+DataAnalytics_A5_Emmanuel_Amoako.xxx
+
+Assignment 5 Written Answers
+
+1a). Describe the type of patterns or trends you might look for and how you plan to explore
+and model them. Min. 3 sentences (0%) ;-)
+
+I wish to explore the relationships between square footage vs pricing and tax class vs the number of units within the building. Based on intuition i expected a positive correlation for the first comparison (more square footage means higher price) and suspected that certain tax classes had different numbers of units in the building (different kinds of buildings are in different tax classes). I plan to use both Naive Bayes and PCA to understand such after dataset exploring the data.
+
+1b). Perform exploratory data analysis (variable distributions, etc.) and describe what you did including plots and other descriptions. Identify the outlier values in the data for Sale Price and generate suitable plots to demonstrate the outliers relative to the other data points. Min. 5 sentences (2%)  
+
+Firstly, I comparatively analyzed sale price with gross and land square feet. I did so due based off of the plotting of these variables with each other showing positive relation. I then created histograms for sale price with gross and land square feet. Sale price showed the largest variation between the three variables tested, with values showing the largest frequency at the lower end. Due to data processing, several of the data points within gross and land square feet were omitted, which might explain the lack of variation for those variables. These differences in variation were reflected in the box plot of the three variables.
+
+1c). Conduct Multivariate Regression on the 1 borough dataset to predict the Sale Price using other variables that may have a meaningful connection to price. After you identify a well-performing model test it on 2 subsets of 1 borough dataset (based on meaningful criteria of your choice, such as building class or sq footage value) and compare the results you obtained. You may have to try multiple models and drop variables with very low significance. Explain the results. Min. 5 sentences (2%)
+
+I performed a linear regression on a subset of the data set containing a portion of the data from the Manhattan labeled subset of the data. The linear regression plotted sale price against the sum of gross and land square feet showing an R^2 value of 0.9851. I then took subsets of the Manhattan labeled dataset filtering by neighborhood, creating subsets without FLATIRON and UPPER EAST SIDE (59-79). I reran the same regression using data from these subsets, and got R^2 values of 0.9828 and 0.9851 for the FLATIRON and UPPER EAST SIDE (59-79) regressions respectively. These results show that for subsets of the Manhattan labeled data, square footage can be used as a correlative indicator of sale price.
+
+1d). Pick more than one supervised learning model (these need not be restricted to the models you’ve learned so far), e.g., Naïve Bayes, k-NN, Random Forest, SVM to explore a classification problem using the data. You may choose which categorical variable (e.g. neighborhood, building class) to use as class label. Evaluate the results (contingency tables & metrics). Describe any cleaning you had to do and why. Min. 5 sentences (2%)
+
+As stated before I was also interested in the relationship between tax class vs the number of units within the building. To examine such relations, I created models using both Naive Bayes and Principle Component Analysis. I created a subset of the original dataset that contain the tax code label for each data point in the Manhattan labeled subset, keeping residential, commercial and the total unit variables in the subset. The Naive Bayes model showed an accuracy of 0.2520. The PCA analysis showed that the total units and residential units within a building were most representative of the first principle component, implying that running a regression just those two variables would be more predictive of Tax Class.
+
+2a). Apply the best performing regression model(s) from 1.c to predict Sale Price based on the variables you chose. Plot the predictions and residuals. Explain how well (or not) the models generalize to the whole dataset and speculate as to the reason. Min. 3-4 sentences.
+
+I reapplied the linear model shown in 1c to a subset containing all the Bronx labeled data. This was done instead of the whole dataset to save on computing power. The model generalized the data of the subset well as the R^2 value stood at 0.9286. This ought to be due to the fact that borough as a class does not have a noticeable effect on the relation between square footage and price.
+
+2b). Apply the classification model(s) from 1d. to predict the categorical variable of your choice. Evaluate the results (contingency tables & metrics). Explain how well (or not) the models generalize to the whole dataset and speculate as to the reason. Min. 3-4 sentences
+(4000-level 4%, 6000-level 3%) 
+
+I reapplied the Naive Bayes model from 1.d to a subset of the tax code subset containing data filtered by the Bronx neighborhood. This was done instead of the whole dataset to save on computing power. The model generalized the data of the subset decently to poorly as the accuracy value stood at 0.4649. This ought to be due to the fact that borough as a class might have a noticeable effect on the relation between tax code and the number of housing units.
+
+2c). Discuss any observations you had about the datasets/ variables, other data in the dataset and/or your confidence in the result.
+
+Ultimately I am not confident in the models represented here as converting variables to numeric to model in this data set resulted in several points being arbitrarily taken out (they had commas). A more in depth cleaning of the data set is needed before any conjectures can be made.
